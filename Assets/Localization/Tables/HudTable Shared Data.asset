@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: HudTable Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: HudTable
+  m_TableCollectionNameGuidString: 9411d421803084b46bd8abf5f99410e3
+  m_Entries:
+  - m_Id: 16037482496
+    m_Key: cherriesTextKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 164520038400
+    m_Key: controlsTextKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 530393370624
+    m_Key: pauseTextKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 171541643026432
+    m_Key: mainMenuKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1369901510463488
+    m_Key: quitGameKey
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 3680334891537924120
+  references:
+    version: 2
+    RefIds:
+    - rid: 3680334891537924120
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1680575736111

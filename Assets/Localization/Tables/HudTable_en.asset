@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: HudTable_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 9411d421803084b46bd8abf5f99410e3, type: 2}
+  m_Metadata:
+    m_Items:
+    - rid: 3680334902279274498
+  m_TableData:
+  - m_Id: 16037482496
+    m_Localized: 'Cherries: {0}'
+    m_Metadata:
+      m_Items:
+      - rid: 3680334902279274498
+  - m_Id: 164520038400
+    m_Localized: 'WASD - Movement
+
+      Space - Jump
+
+      J - Space Shift
+
+      Left
+      Shift - Dash'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 530393370624
+    m_Localized: PAUSE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 171541643026432
+    m_Localized: START DEMO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1369901510463488
+    m_Localized: QUIT DEMO
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 3680334902279274498
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 0090e8bb03000000
