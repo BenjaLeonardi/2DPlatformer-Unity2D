@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerLife : MonoBehaviour
 {
     [SerializeField] private AudioSource audioDeath;
+    [SerializeField] private DataPersistenceManagaer saveManager;
     private Rigidbody2D rbPlayer;
     private Animator anim;
     private void Start()
@@ -30,6 +31,8 @@ public class PlayerLife : MonoBehaviour
     private void Die()
     {
         audioDeath.Play();
+        //Guardamos el juego antes de perder control, en caso de que 
+        saveManager.SaveGame();
         rbPlayer.bodyType = RigidbodyType2D.Static;
         anim.SetTrigger("death");
     }

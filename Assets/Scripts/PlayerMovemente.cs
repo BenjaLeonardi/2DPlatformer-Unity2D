@@ -7,14 +7,14 @@ public class PlayerMovemente : MonoBehaviour
 {
     #region Data and Variables
     [Header("Accelerations Data")]
-    [SerializeField] private float acceleration = 1.2f;
-    [SerializeField] private float deceleration = 0.4f;
-    [SerializeField] private float airAcceleration = 0.5f;
-    [SerializeField] private float airDeceleration = 0.5f;
+    [SerializeField] private float acceleration = 400f;
+    [SerializeField] private float deceleration = 160f;
+    [SerializeField] private float airAcceleration = 0.7f;
+    [SerializeField] private float airDeceleration = 0.7f;
     [Space(5)]
 
     [Header("Running Data")]
-    [SerializeField] private float maxSpeed = 14f;
+    [SerializeField] private float maxSpeed = 18f;
     [Space(5)]
 
     [Header("Jumping Data")]
@@ -150,10 +150,12 @@ public class PlayerMovemente : MonoBehaviour
         //Diferencia entre velocidad que tenemos y la que queremos
         float speedDifference = targetSpeed - rbPlayer.velocity.x;
         //Calculamos el movimiento que vamos a aplicar
-        float movement = speedDifference * accelRate;
+        float movement = speedDifference * accelRate * Time.deltaTime;
 
         //Paso la fuerza que calculamos anteriormente
         rbPlayer.AddForce(movement * Vector2.right, ForceMode2D.Force);
+
+        //rbPlayer.velocity = new Vector2(targetSpeed, rbPlayer.velocity.y);
         #endregion
 
 

@@ -10,6 +10,7 @@ public class LocaleSelector : MonoBehaviour
 
     private void Start()
     {
+        //Aca se llama el idioma default
         int ID = PlayerPrefs.GetInt("LocaleKey", 0);
         ChangeLocale(ID);
     }
