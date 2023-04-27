@@ -36,6 +36,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\FileDataHandler.cs" />
      <Compile Include="Assets\Scripts\ButtonEvent.cs" />
      <Compile Include="Assets\Scripts\ItemCollector.cs" />
      <Compile Include="Assets\Resources\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
@@ -53,6 +54,7 @@
      <Compile Include="Assets\Resources\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
      <Compile Include="Assets\Resources\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
      <Compile Include="Assets\Resources\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
+     <Compile Include="Assets\Scripts\DataPersistenceManagaer.cs" />
      <Compile Include="Assets\Scripts\PlayerMovemente.cs" />
      <Compile Include="Assets\Resources\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
      <Compile Include="Assets\Resources\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
@@ -71,6 +73,8 @@
      <Compile Include="Assets\Resources\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
      <Compile Include="Assets\Resources\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
      <Compile Include="Assets\Resources\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
+     <Compile Include="Assets\Scripts\RoomCamera.cs" />
+     <Compile Include="Assets\Scripts\IDataPersistence.cs" />
      <Compile Include="Assets\Resources\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
      <Compile Include="Assets\Scripts\CameraHandle.cs" />
      <Compile Include="Assets\Resources\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
@@ -78,6 +82,8 @@
      <Compile Include="Assets\Resources\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
      <Compile Include="Assets\Scripts\MouseRayCasting.cs" />
      <Compile Include="Assets\Resources\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
+     <Compile Include="Assets\Scripts\CameraLock.cs" />
+     <Compile Include="Assets\Scripts\GameDataSave.cs" />
      <Compile Include="Assets\Resources\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
      <Compile Include="Assets\Resources\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
      <Compile Include="Assets\Resources\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
@@ -89,10 +95,6 @@
      <Compile Include="Assets\Resources\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
      <Compile Include="Assets\Scripts\LevelLoader.cs" />
      <Compile Include="Assets\Resources\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
-     <Compile Include="Assets\Scripts\GameDataSave.cs" />
-     <Compile Include="Assets\Scripts\DataPersistenceManagaer.cs" />
-     <Compile Include="Assets\Scripts\IDataPersistence.cs" />
-     <Compile Include="Assets\Scripts\FileDataHandler.cs" />
      <None Include="Assets\Resources\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\Resources\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Resources\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

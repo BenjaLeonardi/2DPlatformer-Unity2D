@@ -299,11 +299,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94dc58098047213418ff8b50e4413a31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 1.2
-  deceleration: 0.4
-  airAcceleration: 0.5
-  airDeceleration: 0.5
-  maxSpeed: 14
+  acceleration: 400
+  deceleration: 160
+  airAcceleration: 0.7
+  airDeceleration: 0.7
+  maxSpeed: 18
   jumpHeight: 15
   jumpableGround:
     serializedVersion: 2
@@ -360,6 +360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioDeath: {fileID: 4785818508852434151}
+  saveManager: {fileID: 0}
 --- !u!95 &4785818508852434140
 Animator:
   serializedVersion: 5
