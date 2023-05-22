@@ -7,29 +7,28 @@ public class PlayerMovemente : MonoBehaviour
 {
     #region Data and Variables
     [Header("Accelerations Data")]
-    [SerializeField] private float acceleration = 400f;
-    [SerializeField] private float deceleration = 160f;
-    [SerializeField] private float airAcceleration = 0.7f;
-    [SerializeField] private float airDeceleration = 0.7f;
+    [SerializeField] private float acceleration = 225f;
+    [SerializeField] private float deceleration = 115f;
+    [SerializeField] private float airAcceleration = 0.5f;
+    [SerializeField] private float airDeceleration = 3f;
     [Space(5)]
 
     [Header("Running Data")]
-    [SerializeField] private float maxSpeed = 18f;
+    [SerializeField] public float maxSpeed = 20f;
     [Space(5)]
 
     [Header("Jumping Data")]
-    [SerializeField] private float jumpHeight = 15f;
+    [SerializeField] private float jumpHeight = 20f;
+    [SerializeField] private float jumpTrampMult = 1.25f;
     [SerializeField] private LayerMask jumpableGround;
     [SerializeField] private float coyoteTime = 0.2f;
-    [SerializeField] private float jumpBufferTime = 0.2f;
     [SerializeField] private AudioSource audioJump;
     private float coyoteTimeCounter;
-    private float jumpBufferTimeCounter;
     private bool isJumping = false;
     [Space(5)]
 
     [Header("Dash Data")]
-    [SerializeField] private float dashSpeed = 30f;
+    [SerializeField] private float dashSpeed = 25f;
     [SerializeField] private float dashTime = 0.2f;
     private Vector2 dashDirection;
     private bool isDashing = false;
@@ -40,9 +39,11 @@ public class PlayerMovemente : MonoBehaviour
     [SerializeField] private float wallSlidingSpeed = 5f;
     [SerializeField] private Transform frontCheck;
     [SerializeField] private float checkRadius = 0.5f;
-    [SerializeField] private float xWallForce = 25f;
+    [SerializeField] private float xWallForce = 15f;
     [SerializeField] private float yWallForce = 15f;
     [SerializeField] private float wallJumpTime = 0.1f;
+    [SerializeField] private float stickyTimer = 0.4f;
+    private float stickyTimerCounter;
     private bool isTouchingFront;
     private bool isWallSliding;
     private bool wallJumping;
@@ -118,6 +119,12 @@ public class PlayerMovemente : MonoBehaviour
             PlayerJump();
         }
 
+        //Solucion temporal, pero me gusto como queda el efecto
+        if (Input.GetButtonUp("Jump"))
+        {
+            rbPlayer.velocity = new Vector2(rbPlayer.velocity.x, rbPlayer.velocity.y / 4);
+        }
+
         if (dashInput && canDash)
         {
             Dash();
@@ -125,6 +132,15 @@ public class PlayerMovemente : MonoBehaviour
         Walljumping();
         UpdateAnimation();
         JumpBuffers();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Trampoline"))
+        {
+            //rbPlayer.AddForce(new Vector2(0, jumpHeight * 3), ForceMode2D.Impulse);
+            rbPlayer.velocity = new Vector2(rbPlayer.velocity.x, jumpHeight * jumpTrampMult);
+        }
     }
 
     private void Run()
@@ -165,7 +181,8 @@ public class PlayerMovemente : MonoBehaviour
     {
         isTouchingFront = Physics2D.OverlapCircle(frontCheck.position, checkRadius, jumpableGround);
 
-        if (isTouchingFront == true && IsGrounded() == false && dirX != 0)
+        //Seteamos el estado que corresponde
+        if (isTouchingFront == true && IsGrounded() == false)
         {
             isWallSliding = true;
         }
@@ -174,21 +191,31 @@ public class PlayerMovemente : MonoBehaviour
             isWallSliding = false;
         }
 
+        //Caida libre
         if (isWallSliding == true)
         {
             rbPlayer.velocity = new Vector2(rbPlayer.velocity.x, Mathf.Clamp(rbPlayer.velocity.y, -wallSlidingSpeed, float.MaxValue));
         }
 
-        if (Input.GetKeyDown("space") && isWallSliding == true)
+        if (Input.GetKeyDown("space") && (isWallSliding == true || stickyTimerCounter > 0f))
         {
+            //Para no saltar en el aire dos veces en caso de muchos fps, optimizar
             wallJumping = true;
             Invoke("SetWallJumpingToFalse", wallJumpTime);
+            if (isWallSliding)
+            {
+                rbPlayer.velocity = new Vector2(xWallForce * -transform.localScale.x, yWallForce);
+            }
+            else
+            {
+                rbPlayer.velocity = new Vector2(xWallForce * transform.localScale.x, yWallForce);
+            }
         }
 
+        //Podria optimizar este codigo
         if (wallJumping == true)
         {
             dustParticles.Play();
-            rbPlayer.velocity = new Vector2(xWallForce * -dirX, yWallForce);
         }
     }
 
@@ -197,7 +224,7 @@ public class PlayerMovemente : MonoBehaviour
         wallJumping = false;
     }
 
-    //Arreglar
+    //Arreglado, falta ver colision con bordes
     private void Dash()
     {
         isDashing = true;
@@ -262,6 +289,15 @@ public class PlayerMovemente : MonoBehaviour
         else
         {
             coyoteTimeCounter -= Time.deltaTime;
+        }
+
+        if (isWallSliding)
+        {
+            stickyTimerCounter = stickyTimer;
+        }
+        else
+        {
+            stickyTimerCounter -= Time.deltaTime;
         }
     }
 

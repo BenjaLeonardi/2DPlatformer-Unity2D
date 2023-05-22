@@ -8,6 +8,8 @@ TagManager:
   - Trap
   - Death
   - Room
+  - SpawnPoint
+  - Trampoline
   layers:
   - Default
   - TransparentFX
