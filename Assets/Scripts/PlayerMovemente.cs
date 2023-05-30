@@ -68,7 +68,7 @@ public class PlayerMovemente : MonoBehaviour
     private SpriteRenderer spritePlayer;
     private TrailRenderer trailPlayer;
     private PlayerMovemente movementScript;
-    private bool levelUp = false;
+    private bool stickToWalls;
     #endregion
 
     // Esto es similar a Godot
@@ -93,25 +93,11 @@ public class PlayerMovemente : MonoBehaviour
         dirY = SimpleInput.GetAxisRaw("Vertical");
         var jumpInput = Input.GetButtonDown("Jump");
         var dashInput = Input.GetButtonDown("Dash");
-        var changeLevel = Input.GetKeyDown("j");
+        stickToWalls = Input.GetKey("j");
 
         if (!isDashing)
         {
             Run();
-        }
-
-        //Optimizar y ver como no trabarse en collisions o bien no quedar OOB
-        if (levelUp && changeLevel)
-        {
-            audioSpaceShift.Play();
-            levelUp = false;
-            transform.position = new Vector2(transform.position.x, transform.position.y - 90);
-        }
-        else if (!levelUp && changeLevel)
-        {
-            audioSpaceShift.Play();
-            levelUp = true;
-            transform.position = new Vector2(transform.position.x, transform.position.y + 90);
         }
 
         if (jumpInput)
@@ -129,6 +115,8 @@ public class PlayerMovemente : MonoBehaviour
         {
             Dash();
         }
+
+        WallGrab();
         Walljumping();
         UpdateAnimation();
         JumpBuffers();
@@ -270,6 +258,19 @@ public class PlayerMovemente : MonoBehaviour
 
             StartCoroutine(JumpCooldown());
 
+        }
+    }
+
+    private void WallGrab()
+    {
+        if (stickToWalls && isWallSliding)
+        {
+            rbPlayer.isKinematic = true;
+            rbPlayer.velocity = Vector2.zero;
+        }
+        else if (!stickToWalls)
+        {
+            rbPlayer.isKinematic = false;
         }
     }
 

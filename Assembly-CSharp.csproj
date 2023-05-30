@@ -92,6 +92,7 @@
      <Compile Include="Assets\Scripts\StickyPlatform.cs" />
      <Compile Include="Assets\Resources\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
      <Compile Include="Assets\Resources\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
+     <Compile Include="Assets\StonePlatform.cs" />
      <Compile Include="Assets\Resources\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
      <Compile Include="Assets\Scripts\LevelLoader.cs" />
      <Compile Include="Assets\Resources\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />

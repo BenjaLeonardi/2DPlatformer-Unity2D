@@ -29,10 +29,7 @@ MonoBehaviour:
 
       Space - Saltar
 
-      J - Space Shift
-
-      Left
-      Shift - Dash'
+      Left Shift - Dash'
     m_Metadata:
       m_Items: []
   - m_Id: 530393370624
