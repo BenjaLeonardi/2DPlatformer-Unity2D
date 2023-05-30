@@ -8,9 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: ea89c61bc03d1474abb617a4e82747c5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level 1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Level Celeste.unity
+    guid: 6fac4586d074c4848bdd20e9afff9840
   - enabled: 1
     path: Assets/Scenes/End Screen.unity
     guid: 2da5411aaff73e8439d92a581a4e0b38
